@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfb53g1kp72ly"]
+
+[ext_resource type="Script" path="res://Application/Scenes/ATVSomativa.gd" id="1_thg4x"]
+[ext_resource type="Script" path="res://Application/Scenes/CadastroButton.gd" id="2_fx6du"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.5
+offset_right = 225.5
+offset_bottom = 70.0
+grow_horizontal = 2
+text = "Exemplo de aplicação web desenvolvida na Godot Engine para a ATV Somativa de DEV OPS PUCPR 2023"
+autowrap_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -172.0
+offset_right = 252.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_thg4x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Insira seu nome"
+
+[node name="InputTextEdit" type="TextEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StoreButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Cadastrar"
+script = ExtResource("2_fx6du")
+
+[node name="CheckButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Verificar se existe"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "iNSIRA SEU NOME PARA REALIZAR UM CADASTRO"
+horizontal_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="VBoxContainer/StoreButton" to="VBoxContainer" method="_on_store_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CheckButton" to="VBoxContainer" method="_on_check_button_pressed"]
